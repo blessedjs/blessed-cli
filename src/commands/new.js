@@ -30,6 +30,7 @@ module.exports.handler = async function handler(options) {
   if(!dryRun) {
     await mkdir(`${projectName}/bin`, { recursive: true });
   }
+  
   console.log(`Creating ${projectName}/bin/cli.js file...`);
   if(!dryRun) {
     await copyFile(path.join(__dirname, '../../templates/new/bin/cli.js'), `${projectName}/bin/cli.js`);
@@ -39,9 +40,60 @@ module.exports.handler = async function handler(options) {
   if(!dryRun) {
     await mkdir(`${projectName}/src/pages`, { recursive: true });
   }
+
   console.log(`Creating ${projectName}/src/utils directory...`);
   if(!dryRun) {
     await mkdir(`${projectName}/src/utils`, { recursive: true });
+  }
+
+  console.log(`Creating ${projectName}/src/utils/getTheme.js ...`);
+  if(!dryRun) {
+    await copyFile(path.join(__dirname, '../../templates/new/src/utils/getTheme.js'), `${projectName}/src/utils/getTheme.js`);
+  }
+
+  console.log(`Creating ${projectName}/.eslintignore ...`);
+  if(!dryRun) {
+    await copyFile(path.join(__dirname, '../../templates/new/.eslintignore'), `${projectName}/.eslintignore`);
+  }
+
+  console.log(`Creating ${projectName}/.gitignore ...`);
+  if(!dryRun) {
+    await copyFile(path.join(__dirname, '../../templates/new/.gitignore'), `${projectName}/.gitignore`);
+  }
+
+  console.log(`Creating ${projectName}/.npmignore ...`);
+  if(!dryRun) {
+    await copyFile(path.join(__dirname, '../../templates/new/.npmignore'), `${projectName}/.npmignore`);
+  }
+
+  console.log(`Creating ${projectName}/.prettierrc.js ...`);
+  if(!dryRun) {
+    await copyFile(path.join(__dirname, '../../templates/new/.prettierrc.js'), `${projectName}/.prettierrc.js`);
+  }
+
+  console.log(`Creating ${projectName}/LICENSE.md ...`);
+  if(!dryRun) {
+    await copyFile(path.join(__dirname, '../../templates/new/LICENSE.md'), `${projectName}/LICENSE.md`);
+  }
+
+  console.log(`Creating ${projectName}/README.md ...`);
+  if(!dryRun) {
+    await copyFile(path.join(__dirname, '../../tjemplates/new/README.md'), `${projectName}/README.md`);
+  }
+
+  console.log(`Creating ${projectName}/package.json ...`);
+  if(!dryRun) {
+    await copyFile(path.join(__dirname, '../../templates/new/package.json'), `${projectName}/package.json`);
+  }
+
+  console.log(`Creating ${projectName}/src/index.js ...`);
+  if(!dryRun) {
+    await copyFile(path.join(__dirname, '../../templates/new/src/index.js.json'), `${projectName}/src/index.js`);
+  }
+
+  console.log(`Creating ${projectName}/src/styles.js ...`);
+  if(!dryRun) {
+    await copyFile(path.join(__dirname, '../../templates/new/src/styles.js'), `${projectName}/src/styles.js.json`);
   }
 
   console.log(`blessed project: ${projectName} successfully created.`);
