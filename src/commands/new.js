@@ -14,6 +14,20 @@ module.exports.builder = function builder(yargs) {
     describe: 'The name of the theme to set as default theme',
     type: 'string',
   });
+
+  yargs.option('skip-git', {
+    alias: 'sg',
+    demandOption: false,
+    describe: 'Skip git init for the new project',
+    type: 'string',
+  });
+
+  yargs.option('skip-npm', {
+    alias: 'sn',
+    demandOption: false,
+    describe: 'Skip npm installl for the new project',
+    type: 'string',
+  });
 };
 
 module.exports.handler = async function handler(options) {
