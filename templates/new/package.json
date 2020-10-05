@@ -22,7 +22,14 @@
     "blessed": "^0.1.81",
     "blessed-contrib": "^4.8.20",
     "blessed-themes": "^1.1.0",
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "module-alias": "^2.2.2"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "utils": "src/utils",
+    "widgets": "src/widgets",
+    "pages": "src/pages"
   },
   "devDependencies": {
     "eslint": "^7.6.0",

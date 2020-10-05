@@ -16,15 +16,17 @@ module.exports.builder = function builder(yargs) {
   });
 
   yargs.option('skip-git', {
-    alias: 'sg',
     demandOption: false,
     describe: 'Skip git init for the new project',
+    type: 'boolean',
+    default: false,
   });
 
   yargs.option('skip-npm', {
-    alias: 'sn',
     demandOption: false,
     describe: 'Skip npm install for the new project',
+    type: 'boolean',
+    default: false,
   });
 };
 
@@ -119,7 +121,8 @@ module.exports.handler = async function handler(options) {
   }
 
   console.log('🎥  Initializing git repository.');
-  if(!skipGit && !dryRun) {
+  //skipGit = skipNpm = dryRun;
+  if(!dryRun && !skipGit) {
     exec('git init', { cwd: `${projectName}` }, (err, stdout, stderr) => {
 
       if(err) console.log(err);
@@ -128,7 +131,7 @@ module.exports.handler = async function handler(options) {
   }
 
   console.log('Installing npm packages.');
-  if(!skipNpm && !dryRun) {
+  if(!dryRun && !skipNpm) {
     exec('npm install', { cwd: `${projectName}` }, (err, stdout, stderr) => {
 
       if(err) console.log(err);
