@@ -1,8 +1,8 @@
 {
   "name": "my-awesome-cli",
-  "version": "1.7.1",
-  "description": "CLI for emberobserver.com",
-  "main": "index.js",
+  "version": "1.0.0",
+  "description": "An awesome CLI created with blessed.js",
+  "main": "src/index.js",
   "bin": {
     "cli": "bin/cli.js"
   },
@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "debug": "node --inspect-brk ./bin/cli.js",
-    "deploy": "git push && git push --tags && npm publish"
+    "deploy": "git push && git push --tags && npm publish",
+    "start": "./bin/cli.js"
   },
   "keywords": [
     "cli",

@@ -24,7 +24,7 @@ module.exports.builder = function builder(yargs) {
   yargs.option('skip-npm', {
     alias: 'sn',
     demandOption: false,
-    describe: 'Skip npm installl for the new project',
+    describe: 'Skip npm install for the new project',
   });
 };
 
@@ -32,6 +32,7 @@ module.exports.handler = async function handler(options) {
   const fs = require('fs');
   const path = require('path');
   const util = require('util');
+  const chalk = require('chalk');
 
   const mkdir = util.promisify(fs.mkdir);
   const copyFile = util.promisify(fs.copyFile);
@@ -39,84 +40,94 @@ module.exports.handler = async function handler(options) {
 
   const { projectName, dryRun, theme, skipGit, skipNpm } = options;
 
-  console.log(`Creating ${projectName}/bin directory...`);
+  console.log(`✨Creating a new blessed-cli app in ${chalk.yellow(path.join(process.cwd(), projectName))}:`);
+  const _create = chalk.green('create');
+
+  console.log(`${_create} ${projectName}/bin directory`);
   if(!dryRun) {
     await mkdir(`${projectName}/bin`, { recursive: true });
   }
-  
-  console.log(`Creating ${projectName}/bin/cli.js file...`);
+
+  console.log(`${_create} ${projectName}/bin/cli.js file...`);
   if(!dryRun) {
     await copyFile(path.join(__dirname, '../../templates/new/bin/cli.js'), `${projectName}/bin/cli.js`);
   }
 
-  console.log(`Creating ${projectName}/src/pages directory...`);
+  console.log(`${_create} ${projectName}/src/pages directory...`);
   if(!dryRun) {
     await mkdir(`${projectName}/src/pages`, { recursive: true });
   }
 
-  console.log(`Creating ${projectName}/src/utils directory...`);
+  console.log(`${_create} ${projectName}/src/widgets`);
+  if(!dryRun) {
+    await mkdir(`${projectName}/src/widgets`, { recursive: true });
+  }
+
+  console.log(`${_create} ${projectName}/src/utils directory...`);
   if(!dryRun) {
     await mkdir(`${projectName}/src/utils`, { recursive: true });
   }
 
-  console.log(`Creating ${projectName}/src/utils/getTheme.js ...`);
+  console.log(`${_create} ${projectName}/src/utils/getTheme.js ...`);
   if(!dryRun) {
     await copyFile(path.join(__dirname, '../../templates/new/src/utils/getTheme.js'), `${projectName}/src/utils/getTheme.js`);
   }
 
-  console.log(`Creating ${projectName}/.eslintignore ...`);
+  console.log(`${_create} ${projectName}/.eslintignore ...`);
   if(!dryRun) {
     await copyFile(path.join(__dirname, '../../templates/new/.eslintignore'), `${projectName}/.eslintignore`);
   }
 
-  console.log(`Creating ${projectName}/.gitignore ...`);
+  console.log(`${_create} ${projectName}/.gitignore ...`);
   if(!dryRun) {
     await copyFile(path.join(__dirname, '../../templates/new/.gitignore'), `${projectName}/.gitignore`);
   }
 
-  console.log(`Creating ${projectName}/.npmignore ...`);
+  console.log(`${_create} ${projectName}/.npmignore ...`);
   if(!dryRun) {
     await copyFile(path.join(__dirname, '../../templates/new/.npmignore'), `${projectName}/.npmignore`);
   }
 
-  console.log(`Creating ${projectName}/.prettierrc.js ...`);
+  console.log(`${_create} ${projectName}/.prettierrc.js ...`);
   if(!dryRun) {
     await copyFile(path.join(__dirname, '../../templates/new/.prettierrc.js'), `${projectName}/.prettierrc.js`);
   }
 
-  console.log(`Creating ${projectName}/LICENSE.md ...`);
+  console.log(`${_create} ${projectName}/LICENSE.md ...`);
   if(!dryRun) {
     await copyFile(path.join(__dirname, '../../templates/new/LICENSE.md'), `${projectName}/LICENSE.md`);
   }
 
-  console.log(`Creating ${projectName}/README.md ...`);
+  console.log(`${_create} ${projectName}/README.md ...`);
   if(!dryRun) {
     await copyFile(path.join(__dirname, '../../templates/new/README.md'), `${projectName}/README.md`);
   }
 
-  console.log(`Creating ${projectName}/package.json ...`);
+  console.log(`${_create} ${projectName}/package.json ...`);
   if(!dryRun) {
     await copyFile(path.join(__dirname, '../../templates/new/package.json'), `${projectName}/package.json`);
   }
 
-  console.log(`Creating ${projectName}/src/index.js ...`);
+  console.log(`${_create} ${projectName}/src/index.js ...`);
   if(!dryRun) {
     await copyFile(path.join(__dirname, '../../templates/new/src/index.js'), `${projectName}/src/index.js`);
   }
 
-  console.log(`Creating ${projectName}/src/styles.js ...`);
+  console.log(`${_create} ${projectName}/src/styles.js ...`);
   if(!dryRun) {
     await copyFile(path.join(__dirname, '../../templates/new/src/styles.js'), `${projectName}/src/styles.js`);
   }
 
+  console.log('🎥  Initializing git repository.');
   if(!skipGit && !dryRun) {
     exec('git init', { cwd: `${projectName}` }, (err, stdout, stderr) => {
 
       if(err) console.log(err);
-      console.log(stdout);
+      console.log(chalk.green('Git: successfully initialized.'));
     });
   }
 
+  console.log('Installing npm packages.');
   if(!skipNpm && !dryRun) {
     exec('npm install', { cwd: `${projectName}` }, (err, stdout, stderr) => {
 
@@ -125,6 +136,11 @@ module.exports.handler = async function handler(options) {
     });
   }
 
-  console.log(`blessed project: ${projectName} successfully created.`);
+  console.log(`🎉 Successfully created blessed-cli project: ${chalk.yellow(projectName)} `);
+  console.log('👉 Get stated by typing:');
+
+  console.log(`  $ ${chalk.blue(`cd ${projectName}`)}`);
+  console.log(`  $ ${chalk.blue('npm start')}`);
+  console.log(`Happy coding!`);
 
 };
