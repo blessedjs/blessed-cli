@@ -19,14 +19,12 @@ module.exports.builder = function builder(yargs) {
     alias: 'sg',
     demandOption: false,
     describe: 'Skip git init for the new project',
-    type: 'string',
   });
 
   yargs.option('skip-npm', {
     alias: 'sn',
     demandOption: false,
     describe: 'Skip npm installl for the new project',
-    type: 'string',
   });
 };
 
@@ -37,8 +35,9 @@ module.exports.handler = async function handler(options) {
 
   const mkdir = util.promisify(fs.mkdir);
   const copyFile = util.promisify(fs.copyFile);
+  const { exec } = require('child_process');
 
-  const { projectName, dryRun, theme } = options;
+  const { projectName, dryRun, theme, skipGit, skipNpm } = options;
 
   console.log(`Creating ${projectName}/bin directory...`);
   if(!dryRun) {
@@ -92,7 +91,7 @@ module.exports.handler = async function handler(options) {
 
   console.log(`Creating ${projectName}/README.md ...`);
   if(!dryRun) {
-    await copyFile(path.join(__dirname, '../../tjemplates/new/README.md'), `${projectName}/README.md`);
+    await copyFile(path.join(__dirname, '../../templates/new/README.md'), `${projectName}/README.md`);
   }
 
   console.log(`Creating ${projectName}/package.json ...`);
@@ -102,12 +101,28 @@ module.exports.handler = async function handler(options) {
 
   console.log(`Creating ${projectName}/src/index.js ...`);
   if(!dryRun) {
-    await copyFile(path.join(__dirname, '../../templates/new/src/index.js.json'), `${projectName}/src/index.js`);
+    await copyFile(path.join(__dirname, '../../templates/new/src/index.js'), `${projectName}/src/index.js`);
   }
 
   console.log(`Creating ${projectName}/src/styles.js ...`);
   if(!dryRun) {
-    await copyFile(path.join(__dirname, '../../templates/new/src/styles.js'), `${projectName}/src/styles.js.json`);
+    await copyFile(path.join(__dirname, '../../templates/new/src/styles.js'), `${projectName}/src/styles.js`);
+  }
+
+  if(!skipGit && !dryRun) {
+    exec('git init', { cwd: `${projectName}` }, (err, stdout, stderr) => {
+
+      if(err) console.log(err);
+      console.log(stdout);
+    });
+  }
+
+  if(!skipNpm && !dryRun) {
+    exec('npm install', { cwd: `${projectName}` }, (err, stdout, stderr) => {
+
+      if(err) console.log(err);
+      console.log(stdout);
+    });
   }
 
   console.log(`blessed project: ${projectName} successfully created.`);

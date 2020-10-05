@@ -21,8 +21,7 @@
     "blessed": "^0.1.81",
     "blessed-contrib": "^4.8.20",
     "blessed-themes": "^1.1.0",
-    "dayjs": "^1.8.33",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.5"
   },
   "devDependencies": {
     "eslint": "^7.6.0",
