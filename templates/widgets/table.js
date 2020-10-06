@@ -17,5 +17,11 @@ module.exports = function(screen) {
     style: theme.table.style,
   });
 
+   table.setData([
+    [ 'Animals',  'Foods'  ],
+    [ 'Elephant', 'Apple'  ],
+    [ 'Bird',     'Orange' ]
+   ]);
+
   return table;
 };

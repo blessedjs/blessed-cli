@@ -28,6 +28,18 @@ module.exports.builder = function builder(yargs) {
     type: 'boolean',
     default: false,
   });
+  yargs.option('use-yarn', {
+    demandOption: false,
+    describe: 'Use yarn as package manager to install dependencies',
+    type: 'boolean',
+    default: false,
+  });
+  yargs.option('use-pnpm', {
+    demandOption: false,
+    describe: 'Use pnpm as package manager to install dependencies',
+    type: 'boolean',
+    default: false,
+  });
 };
 
 module.exports.handler = async function handler(options) {

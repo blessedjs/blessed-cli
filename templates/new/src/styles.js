@@ -12,28 +12,6 @@ module.exports = function (colors) {
       bg: background,
       fg: foreground,
     },
-    header: {
-      border: {
-        type: 'line',
-        fg: foreground,
-        bg: background,
-      },
-      style: {
-        fg: red,
-        bg: background,
-      },
-    },
-    searchBox: {
-      border: {
-        type: 'line',
-        fg: foreground,
-        bg: background,
-      },
-      style: {
-        fg: cyan,
-        bg: background,
-      },
-    },
     text: {
       fg: foreground,
       bg: background,
@@ -42,45 +20,6 @@ module.exports = function (colors) {
         type: 'line',
         fg: foreground,
         bg: background,
-      },
-    },
-    footer: {
-      style: {
-        fg: foreground,
-        bg: background,
-        selected: {
-          bg: yellow,
-          fg: background,
-        },
-        border: {
-          type: 'line',
-          fg: foreground,
-          bg: background,
-        },
-      },
-    },
-    navbar: {
-      border: {
-        type: 'line',
-        fg: green,
-        bg: background,
-      },
-      style: {
-        bg: background,
-        fg: foreground,
-        selected: {
-          fg: background,
-          bg: foreground,
-        },
-        focus: {
-          border: {
-            fg: red,
-          },
-        },
-        label: {
-          fg: foreground,
-          bg: background,
-        },
       },
     },
     box: {
@@ -96,6 +35,29 @@ module.exports = function (colors) {
           border: {
             fg: red,
           },
+        },
+        label: {
+          fg: foreground,
+          bg: background,
+        },
+      },
+    },
+    table: {
+      border: {
+        type: 'line',
+        fg: foreground,
+        bg: background,
+      },
+      style: {
+        bg: background,
+        fg: foreground,
+        header: {
+          fg: foreground,
+          bg: background,
+        },
+        cell: {
+          fg: foreground,
+          bg: background,
         },
         label: {
           fg: foreground,
