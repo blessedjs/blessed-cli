@@ -1,5 +1,5 @@
 {
-  "name": "@terminal-junkies/blessed-cli",
+  "name": "@blessed/cli",
   "version": "1.0.0",
   "description": "A CLI to create / scaffold blessed apps",
   "main": "src/index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/terminal-junkies/blessed-cli.git"
+    "url": "git+https://github.com/blessedjs/cli.git"
   },
   "keywords": [
     "blessed",
@@ -23,9 +23,9 @@
   "author": "Rajasegar Chandran <rajasegar.c@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rajasegar/blessed-cli/issues"
+    "url": "https://github.com/blessedjs/cli/issues"
   },
-  "homepage": "https://github.com/rajasegar/blessed-cli#readme",
+  "homepage": "https://github.com/blessedjs/cli#readme",
   "dependencies": {
     "chalk": "^4.1.0",
     "yargs": "^16.0.3"

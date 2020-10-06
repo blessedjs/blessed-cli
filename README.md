@@ -1,11 +1,11 @@
 # blessed-cli
 
-A CLI to create / scaffold [blessed]() apps with conventional folder structure and project setup.
+A CLI to create / scaffold [blessed](https://github.com/chjj/blessed) apps with conventional folder structure and project setup.
 
 ## Install 
 
 ```
-npm install -g blessed-cli
+npm install -g @blessed/cli
 ```
 
 ## Usage
@@ -40,7 +40,7 @@ blessed p home
 ```
 blessed widget <widget-name>
 ```
-By default, this will create a [Box]() widget.
+By default, this will create a [Box](https://github.com/chjj/blessed#box-from-element) widget.
 You can also pass the `--type` option to specify the type of the widget.
 
 ```
