@@ -19,8 +19,8 @@ module.exports = function() {
     left: 'center',
     width: '50%',
     height: '50%',
-    border: theme.header.border,
-    style: theme.header.style,
+    border: theme.box.border,
+    style: theme.box.style,
   });
 
   screen.key(['q'], () => {

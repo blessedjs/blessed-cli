@@ -25,7 +25,27 @@ module.exports = function (colors) {
     box: {
       border: {
         type: 'line',
-        fg: green,
+        fg: foreground,
+        bg: background,
+      },
+      style: {
+        bg: background,
+        fg: foreground,
+        focus: {
+          border: {
+            fg: red,
+          },
+        },
+        label: {
+          fg: foreground,
+          bg: background,
+        },
+      },
+    },
+    bigtext: {
+      border: {
+        type: 'line',
+        fg: foreground,
         bg: background,
       },
       style: {
@@ -64,6 +84,37 @@ module.exports = function (colors) {
           bg: background,
         },
       },
+    },
+    listbar: {
+      style: {
+        bg: green,
+        item: {
+          bg: red,
+          hover: {
+            bg: blue
+          },
+        },
+        selected: {
+          bg: blue
+        }
+      },
+    },
+    listtable: {
+    style: {
+      border: {
+        fg: red
+      },
+      header: {
+        fg: blue,
+        bold: true
+      },
+      cell: {
+        fg: magenta,
+        selected: {
+          bg: blue
+        }
+      }
+    }
     },
   };
 };
