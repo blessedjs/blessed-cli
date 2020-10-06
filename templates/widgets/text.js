@@ -6,17 +6,17 @@ const getTheme = require('utils/getTheme');
 module.exports = function(screen) {
   const theme = getTheme();
 
-  const box = blessed.box({
+  const text = blessed.text({
     parent: screen,
-    label: 'box',
-    content: 'hello world',
+    label: 'Text',
+    content: 'Hello world',
     top: 'center',
     left: 'center',
     height: '50%',
     width: '50%',
-    border: theme.box.border,
-    style: theme.box.style,
+    border: theme.text.border,
+    style: theme.text.style,
   });
 
-  return box;
+  return text;
 };

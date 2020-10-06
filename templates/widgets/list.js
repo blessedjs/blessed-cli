@@ -6,17 +6,18 @@ const getTheme = require('utils/getTheme');
 module.exports = function(screen) {
   const theme = getTheme();
 
-  const box = blessed.box({
+  const list = blessed.list({
     parent: screen,
-    label: 'box',
-    content: 'hello world',
+    label: 'List',
     top: 'center',
     left: 'center',
     height: '50%',
     width: '50%',
-    border: theme.box.border,
-    style: theme.box.style,
+    border: theme.list.border,
+    style: theme.list.style,
   });
 
-  return box;
+  list.setItems(['one','two','three']);
+
+  return list;
 };
