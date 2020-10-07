@@ -15,7 +15,6 @@ module.exports = {
     'prettier/prettier': 'error',
     // 'node/no-unsupported-features': ['error', { ignores: ['modules'] }],
     'node/no-unpublished-require': 0,
-    'node/no-missing-require': 0,
   },
   overrides: [
     {

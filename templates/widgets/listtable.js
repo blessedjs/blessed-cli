@@ -21,17 +21,6 @@ module.exports = function(screen) {
     style: theme.listtable.style,
   });
 
-  const data1 = [
-    [ 'Animals',  'Foods',  'Times'  ],
-    [ 'Elephant', 'Apple',  '1:00am' ],
-    [ 'Bird',     'Orange', '2:15pm' ],
-    [ 'T-Rex',    'Taco',   '8:45am' ],
-    [ 'Mouse',    'Cheese', '9:05am' ]
-  ];
-
-  data1[1][0] = '{red-fg}' + data1[1][0] + '{/red-fg}';
-  data1[2][0] += ' (' + DU + JUAN + ')';
-
   const data2 = [
     [ 'Animals',  'Foods',  'Times',   'Numbers' ],
     [ 'Elephant', 'Apple',  '1:00am',  'One'     ],
@@ -39,9 +28,6 @@ module.exports = function(screen) {
     [ 'T-Rex',    'Taco',   '8:45am',  'Three'   ],
     [ 'Mouse',    'Cheese', '9:05am',  'Four'    ]
   ];
-
-  data2[1][0] = '{red-fg}' + data2[1][0] + '{/red-fg}';
-  data2[2][0] += ' (' + DU + JUAN + ')';
 
 
   table.focus();
