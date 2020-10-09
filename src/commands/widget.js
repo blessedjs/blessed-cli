@@ -30,6 +30,7 @@ module.exports.handler = async function handler(options) {
   const { exec } = require('child_process');
 
   const { widgetName, type, dryRun  } = options;
+  console.log(type, 'type');
 
   const _create = chalk.green('create');
 

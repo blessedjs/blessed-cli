@@ -28,6 +28,18 @@ module.exports.builder = function builder(yargs) {
     type: 'boolean',
     default: false,
   });
+  yargs.option('use-yarn', {
+    demandOption: false,
+    describe: 'Use yarn as package manager to install dependencies',
+    type: 'boolean',
+    default: false,
+  });
+  yargs.option('use-pnpm', {
+    demandOption: false,
+    describe: 'Use pnpm as package manager to install dependencies',
+    type: 'boolean',
+    default: false,
+  });
 };
 
 module.exports.handler = async function handler(options) {
@@ -40,7 +52,7 @@ module.exports.handler = async function handler(options) {
   const copyFile = util.promisify(fs.copyFile);
   const { exec } = require('child_process');
 
-  const { projectName, dryRun, theme, skipGit, skipNpm } = options;
+  const { projectName, dryRun, theme, skipGit, skipNpm, useYarn , usePnpm } = options;
 
   console.log(`✨Creating a new blessed-cli app in ${chalk.yellow(path.join(process.cwd(), projectName))}:`);
   const _create = chalk.green('create');
@@ -132,8 +144,15 @@ module.exports.handler = async function handler(options) {
 
   console.log('Installing npm packages.');
   if(!dryRun && !skipNpm) {
-    exec('npm install', { cwd: `${projectName}` }, (err, stdout, stderr) => {
+    let install = 'npm install';
 
+    if(usePnpm) {
+      install = 'pnpm install';
+    } else if(useYarn) {
+      install = 'yarn';
+    }
+
+    exec(install, { cwd: `${projectName}` }, (err, stdout, stderr) => {
       if(err) console.log(err);
       console.log(stdout);
     });
