@@ -2,6 +2,12 @@
 
 A CLI to create / scaffold [blessed](https://github.com/chjj/blessed) apps with conventional folder structure and project setup.
 
+Features:
+- Project scaffolding
+- Theming setup implemeted by default
+- Generate commands for pages and widgets
+- Conventional project structure with linting enabled
+
 ## Install 
 
 ```
@@ -52,6 +58,21 @@ You can also use the alias `w` to create a widget
 blessed w hello-world --type list
 ```
 
+List of widgets available
+- bigtext
+- box
+- list
+- listbar
+- listtable
+- loading
+- log
+- message
+- prompt
+- question
+- table
+- text
+
+
 ## Help
 ```
 blessed <command> <params> <options>
@@ -70,4 +91,9 @@ For more information, see https://github.com/terminal-junkies/blessed-cli
 
 ```
 
-
+### Projects created with blessed-cli
+- ember-cli-next
+- ember-app-explorer
+- ember-observer-cli
+- nvm-tui
+- npmx
