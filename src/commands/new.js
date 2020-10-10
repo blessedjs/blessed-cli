@@ -94,12 +94,12 @@ module.exports.handler = async function handler(options) {
 
   console.log(`${_create} ${projectName}/.gitignore ...`);
   if(!dryRun) {
-    await copyFile(path.join(__dirname, '../../templates/new/.gitignore'), `${projectName}/.gitignore`);
+    await copyFile(path.join(__dirname, '../../templates/new/__.gitignore'), `${projectName}/.gitignore`);
   }
 
   console.log(`${_create} ${projectName}/.npmignore ...`);
   if(!dryRun) {
-    await copyFile(path.join(__dirname, '../../templates/new/.npmignore'), `${projectName}/.npmignore`);
+    await copyFile(path.join(__dirname, '../../templates/new/__.npmignore'), `${projectName}/.npmignore`);
   }
 
   console.log(`${_create} ${projectName}/.prettierrc.js ...`);
