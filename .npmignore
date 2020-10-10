@@ -2,3 +2,4 @@
 .prettierrc.js
 pnpm-lock.yaml
 my-awesome/
+my-awesome-cli/
