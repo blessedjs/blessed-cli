@@ -1,35 +1,45 @@
 #!/usr/bin/env node
 
 'use strict';
-
-console.log(process.argv.length);
+const projectPrompt = require('../src/prompts/project');
+const pagePrompt = require('../src/prompts/page');
+const widgetPrompt = require('../src/prompts/widget');
 
 if (process.argv.length <= 2) {
 
-  const cmds = {
-  type: 'select',
-  name: 'value',
-  message: 'Pick a color',
-  choices: [
-    { title: 'Red', description: 'This option has a description', value: '#ff0000' },
-    { title: 'Green', value: '#00ff00', disabled: true },
-    { title: 'Blue', value: '#0000ff' }
-  ],
-  initial: 1
-  };
 
   const prompts = require('prompts');
 
-(async () => {
-  const response = await prompts({
-    type: 'number',
-    name: 'value',
-    message: 'How old are you?',
-    validate: value => value < 18 ? `Nightclub is 18+ only` : true
-  });
+  (async () => {
+    const response = await prompts({
+      type: 'select',
+      name: 'command',
+      message: 'What do you want to create?',
+      choices: [
+        { title: 'project', description: 'Create a new blessed project', value: 'project' },
+        { title: 'page', value: 'page', description: 'Create a new page inside current cli project'},
+        { title: 'widget', value: 'widget', description: 'Create a new widget' }
+      ],
+    });
 
-  console.log(response); // => { value: 24 }
-})();
+    switch(response.command) {
+      case 'project':
+        (async () => {
+          await projectPrompt();
+        })();
+        break;
+      case 'page':
+        (async () => {
+          await pagePrompt();
+        })();
+        break;
+      case 'widget':
+        (async () => {
+          await widgetPrompt();
+        })();
+        break;
+    }
+  })();
 
 
 
