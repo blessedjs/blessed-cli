@@ -69,6 +69,14 @@ module.exports = async function (options) {
     );
   }
 
+  console.log(`${_create} ${projectName}/.eslintrc.js ...`);
+  if (!dryRun) {
+    await copyFile(
+      path.join(__dirname, '../../templates/new/.eslintrc.js'),
+      `${projectName}/.eslintrc.js`
+    );
+  }
+
   console.log(`${_create} ${projectName}/.gitignore ...`);
   if (!dryRun) {
     await copyFile(

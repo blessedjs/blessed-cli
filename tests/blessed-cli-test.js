@@ -38,7 +38,7 @@ QUnit.module('blessed-cli', function (hooks) {
       assert.deepEqual(walkSync(cliProject.path()), [
         'my-awesome-cli/',
         'my-awesome-cli/.eslintignore',
-        //'my-awesome-cli/.eslintrc.js',
+        'my-awesome-cli/.eslintrc.js',
         'my-awesome-cli/.gitignore',
         'my-awesome-cli/.npmignore',
         'my-awesome-cli/.prettierrc.js',
