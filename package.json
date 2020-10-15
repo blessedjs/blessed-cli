@@ -9,7 +9,7 @@
   "scripts": {
     "test": "qunit tests/**/*-test.js",
     "start": "./bin/blessed.js",
-    "lint": "eslint .",
+    "lint": "eslint . ",
     "deploy": "git push && git push --tags && npm publish"
   },
   "repository": {
@@ -66,5 +66,5 @@
       ],
       "@semantic-release/github"
     ]
-  },
+  }
 }

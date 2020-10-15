@@ -6,8 +6,6 @@ const pagePrompt = require('../src/prompts/page');
 const widgetPrompt = require('../src/prompts/widget');
 
 if (process.argv.length <= 2) {
-
-
   const prompts = require('prompts');
 
   (async () => {
@@ -16,13 +14,25 @@ if (process.argv.length <= 2) {
       name: 'command',
       message: 'What do you want to create?',
       choices: [
-        { title: 'project', description: 'Create a new blessed project', value: 'project' },
-        { title: 'page', value: 'page', description: 'Create a new page inside current cli project'},
-        { title: 'widget', value: 'widget', description: 'Create a new widget' }
+        {
+          title: 'project',
+          description: 'Create a new blessed project',
+          value: 'project',
+        },
+        {
+          title: 'page',
+          value: 'page',
+          description: 'Create a new page inside current cli project',
+        },
+        {
+          title: 'widget',
+          value: 'widget',
+          description: 'Create a new widget',
+        },
       ],
     });
 
-    switch(response.command) {
+    switch (response.command) {
       case 'project':
         (async () => {
           await projectPrompt();
@@ -40,9 +50,6 @@ if (process.argv.length <= 2) {
         break;
     }
   })();
-
-
-
 } else {
   require('yargs')
     .locale('en')
