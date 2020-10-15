@@ -30,6 +30,7 @@
   "homepage": "https://github.com/blessedjs/cli#readme",
   "dependencies": {
     "chalk": "^4.1.0",
+    "prompts": "^2.3.2",
     "yargs": "^16.0.3"
   },
   "devDependencies": {
