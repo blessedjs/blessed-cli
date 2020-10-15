@@ -19,9 +19,9 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "blessed": "^0.1.81",
-    "blessed-contrib": "^4.8.20",
-    "blessed-themes": "^1.1.0",
+    "@blessed/neo-blessed": "^1.0.0",
+    "@blessed/blessed-contrib": "^1.0.1",
+    "@blessed/themes": "^1.0.0",
     "minimist": "^1.2.5",
     "module-alias": "^2.2.2"
   },
