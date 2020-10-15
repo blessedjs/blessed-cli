@@ -1,6 +1,6 @@
 # blessed-cli
 
-![Build and Deploy](https://github.com/blessedjs/cli/Build%20and%20Deploy/badge.svg)
+![Build and Deploy](https://github.com/blessedjs/blessed-cli/Build%20and%20Deploy/badge.svg)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![npm version](http://img.shields.io/npm/v/@blessed/cli.svg?style=flat)](https://npmjs.org/package/@blessed/cli "View this project on npm")
 
@@ -20,6 +20,11 @@ npm install -g @blessed/cli
 ```
 
 ## Usage
+
+To open a wizard UI
+```
+blessed
+```
 
 ### Create a new blessed CLI project
 ```
