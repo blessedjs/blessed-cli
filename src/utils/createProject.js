@@ -64,7 +64,7 @@ module.exports = async function (options) {
   console.log(`${_create} ${projectName}/.eslintignore ...`);
   if (!dryRun) {
     await copyFile(
-      path.join(__dirname, '../../templates/new/.eslintignore'),
+      path.join(__dirname, '../../templates/new/__.eslintignore'),
       `${projectName}/.eslintignore`
     );
   }
@@ -72,7 +72,7 @@ module.exports = async function (options) {
   console.log(`${_create} ${projectName}/.eslintrc.js ...`);
   if (!dryRun) {
     await copyFile(
-      path.join(__dirname, '../../templates/new/.eslintrc.js'),
+      path.join(__dirname, '../../templates/new/__.eslintrc.js'),
       `${projectName}/.eslintrc.js`
     );
   }
@@ -96,7 +96,7 @@ module.exports = async function (options) {
   console.log(`${_create} ${projectName}/.prettierrc.js ...`);
   if (!dryRun) {
     await copyFile(
-      path.join(__dirname, '../../templates/new/.prettierrc.js'),
+      path.join(__dirname, '../../templates/new/__.prettierrc.js'),
       `${projectName}/.prettierrc.js`
     );
   }
